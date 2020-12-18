@@ -29,7 +29,7 @@ class InputForm(FlaskForm):
 @app.route('/', methods=['GET', 'POST'])
 def index():
     form   = InputForm(request.form)
-    wine_class = 'Unknow'
+    wine_class = 'unknow'
     if form.validate_on_submit():
        x = [[form.alcohol.data, form.malic_acid.data, form.ash.data, form.alcalinity_of_ash.data, form.magnesium.data, form.total_phenols.data, form.flavanoids.data, form.nonflavanoid_phenols.data, form.proanthocyanins.data, form.color_intensity.data, form.hue.data, form.od280.data, form.proline.data]]
        wine_class = make_prediction(x)
