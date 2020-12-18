@@ -5,26 +5,26 @@ from flask import Flask, request, render_template
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from wtforms import FloatField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, NumberRange
 
 app = Flask(__name__)
 app.config['SECRET_KEY']='wP4xQ8hUljJ5oI1c'
 bootstrap = Bootstrap(app)
 
 class InputForm(FlaskForm):
-    alcohol = FloatField('Alcohol', validators=[DataRequired()])
-    malic_acid = FloatField('Malic acid', validators=[DataRequired()])
-    ash = FloatField('Ash', validators=[DataRequired()])
-    alcalinity_of_ash = FloatField('Alcalinity of ash', validators=[DataRequired()])
-    magnesium = FloatField('Magnesium', validators=[DataRequired()])
-    total_phenols = FloatField('Total phenols', validators=[DataRequired()])
-    flavanoids = FloatField('Flavanoids', validators=[DataRequired()])
-    nonflavanoid_phenols = FloatField('Nonflavanoid phenols', validators=[DataRequired()])
-    proanthocyanins = FloatField('Proanthocyanins', validators=[DataRequired()])
-    color_intensity = FloatField('Color intensity', validators=[DataRequired()])
-    hue = FloatField('Hue', validators=[DataRequired()])
-    od280 = FloatField('OD280/OD315 of diluted wines', validators=[DataRequired()])
-    proline = FloatField('Proline', validators=[DataRequired()])
+    alcohol = FloatField('Alcohol', validators=[DataRequired(), NumberRange(min=11, max=14, message='The value must be between 11 and 14')])
+    malic_acid = FloatField('Malic acid', validators=[DataRequired(), NumberRange(min=0.5, max=6, message='The value must be between 0.5 and 6')])
+    ash = FloatField('Ash', validators=[DataRequired(), NumberRange(min=1, max=4, message='The value must be between 1 and 4')])
+    alcalinity_of_ash = FloatField('Alcalinity of ash', validators=[DataRequired(), NumberRange(min=10, max=35, message='The value must be between 10 and 35')])
+    magnesium = FloatField('Magnesium', validators=[DataRequired(), NumberRange(min=60, max=170, message='The value must be between 60 and 170')])
+    total_phenols = FloatField('Total phenols', validators=[DataRequired(), NumberRange(min=0.5, max=4, message='The value must be between 0.5 and 4')])
+    flavanoids = FloatField('Flavanoids', validators=[DataRequired(), NumberRange(min=0, max=6, message='The value must be between 0 and 6')])
+    nonflavanoid_phenols = FloatField('Nonflavanoid phenols', validators=[DataRequired(), NumberRange(min=0, max=1, message='The value must be between 0 and 1')])
+    proanthocyanins = FloatField('Proanthocyanins', validators=[DataRequired(), NumberRange(min=0, max=5, message='The value must be between 0 and 5')])
+    color_intensity = FloatField('Color intensity', validators=[DataRequired(), NumberRange(min=1, max=15, message='The value must be between 1 and 15')])
+    hue = FloatField('Hue', validators=[DataRequired(), NumberRange(min=0, max=2, message='The value must be between 0 and 2')])
+    od280 = FloatField('OD280/OD315 of diluted wines', validators=[DataRequired(), NumberRange(min=1, max=5, message='The value must be between 1 and 5')])
+    proline = FloatField('Proline', validators=[DataRequired(), NumberRange(min=200, max=1700, message='The value must be between 200 and 1700')])
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
