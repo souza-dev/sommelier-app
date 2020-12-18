@@ -12,7 +12,7 @@
         <form action="/" method="post" class="form">
             {{ form.csrf_token }}
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 justify-content-center">
                     {% if wine_class != 'Unknow' %}
                     <div class="row">
                         <div class="form-group col-md-12">
@@ -24,51 +24,68 @@
                     {% endif %} 
 
                     <div class="row">
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-4">
                             {{ wtf.form_field(form.alcohol, class='form-control') }}
                         </div>
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-4">
                             {{ wtf.form_field(form.malic_acid, class='form-control') }}
                         </div>
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-4">
                             {{ wtf.form_field(form.ash, class='form-control') }}
                         </div>
-                        <div class="form-group col-md-12">
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
                             {{ wtf.form_field(form.alcalinity_of_ash, class='form-control') }}
                         </div>
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-4">
                             {{ wtf.form_field(form.magnesium, class='form-control') }}
                         </div>
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-4">
                             {{ wtf.form_field(form.total_phenols, class='form-control') }}
                         </div>
-                        <div class="form-group col-md-12">
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
                             {{ wtf.form_field(form.flavanoids, class='form-control') }}
                         </div>
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-4">
                             {{ wtf.form_field(form.nonflavanoid_phenols, class='form-control') }}
                         </div>
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-4">
                             {{ wtf.form_field(form.proanthocyanins, class='form-control') }}
                         </div>
-                        <div class="form-group col-md-12">
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
                             {{ wtf.form_field(form.color_intensity, class='form-control') }}
                         </div>
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-4">
                             {{ wtf.form_field(form.hue, class='form-control') }}
                         </div>
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-4">
                             {{ wtf.form_field(form.od280, class='form-control') }}
                         </div>
-                        <div class="form-group col-md-12">
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="form-group col-md-4">
                             {{ wtf.form_field(form.proline, class='form-control') }}
                         </div>
-                    </div>     
-                    <div class="row">
+                    </div>
+
+
+
+                    <div class="row col-md-12 text-center">
                         <div class="form-group col-md-12">
                             <button type="submit" class="btn btn-primary">Predict</button>
                         </div>
                     </div>
+
+
                 </div>
             </div>
         </form>
