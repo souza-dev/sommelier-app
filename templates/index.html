@@ -12,7 +12,6 @@
         <form action="/" method="post" class="form">
             {{ form.csrf_token }}
             <div class="row">
-                {% if wine_class != 'unknow' %}
                 <div class="col-md-4">
                     <div class="col-md-12 text-center">
                         <img src="{{ url_for('static', filename=wine_class|string+'.png') }}" class="w-100">
@@ -22,8 +21,7 @@
                         </div>
                     </div>
                 </div>
-                {% endif %} 
-                <div class="col-md-{% if wine_class == 'unknow' %}12{% else %}8{% endif %}">
+                <div class="col-md-8">
                     <div class="row">
                         <div class="form-group col-md-6">
                             {{ wtf.form_field(form.alcohol, class='form-control') }}
